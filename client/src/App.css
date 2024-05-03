@@ -1,0 +1,91 @@
+.registerform {
+  height: 90%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(173, 218, 230, 0.205);
+  padding: 1rem;
+  gap: 2rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+}
+.FormBackgound {
+  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+  height: 92vh;
+}
+.NavlinkStyle {
+  text-decoration: none;
+  color: black;
+}
+.navbar {
+  background-color: #000 !important;
+}
+.UserInfo {
+  font-size: larger;
+  width: 100%;
+  background-color: #202124fb;
+  color: #dadce0;
+  padding: 0.3rem;
+}
+
+.NavlinkStyle:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.inf-content {
+  border: 1px solid #dddddd;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);
+}
+.contactinfo {
+  box-shadow: 2px 2px 5px black;
+  border-radius: 10px;
+}
+.TabPanePersonalInfo {
+  display: flex;
+  justify-content: space-around;
+}
+
+.registerformupdate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+}
+.registerformupdatePassword {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+  gap: 0.5rem;
+}
+.NavlinksDesign {
+  text-decoration: none;
+  color: #000;
+  align-items: center;
+}
+.NavlinksDesign:hover {
+  text-decoration: none;
+  color: #000;
+}
+.TabPanePersonalInfo {
+  display: flex;
+  justify-content: space-around;
+}
+.EditProfileUSerPhoto {
+  border-radius: 50%;
+  height: 70%;
+  margin-bottom: 1rem;
+}
+
+

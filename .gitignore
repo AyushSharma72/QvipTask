@@ -1,0 +1,14 @@
+# Ignore Node.js modules
+node_modules/
+
+# Ignore build output
+/build/
+
+# Ignore environment files
+.env
+
+# Ignore client-side build artifacts
+client/build/
+
+# Ignore server-side build artifacts
+server/build/
