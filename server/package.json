@@ -1,4 +1,13 @@
 {
+  "main":"server.js",
+  "engines":{
+    "node": "14.x"
+  },
+
+  "scripts":{
+    "start":"nodemon server.js"
+    
+  },
   "dependencies": {
    
     "bcrypt": "^5.1.1",
