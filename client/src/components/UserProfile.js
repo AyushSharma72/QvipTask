@@ -80,7 +80,7 @@ const UserProfile = () => {
       {!loading ? (
         <div className="d-flex align-items-center h-100 flex-column  gap-2 UserProfileDiv">
           {auth?.user ? (
-            <div>
+            <div className="w-100">
               <div className=" d-flex justify-content-around w-100 USerContent">
                 <div
                   className="panel-body inf-content "
