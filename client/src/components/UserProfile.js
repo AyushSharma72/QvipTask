@@ -48,12 +48,22 @@ const UserProfile = () => {
       if (image) {
         const dx = e.clientX - anchorX;
         const dy = e.clientY - anchorY;
-        const translateX = dx * 0.1;
-        const translateY = dy * 0.1;
+        const translateX = dx * 0.1; // Adjust the multiplier as needed
+        const translateY = dy * 0.1; // Adjust the multiplier as needed
         image.style.transform = `translate(${translateX}px, ${translateY}px)`;
       }
     }
   }
+
+  // calculate angle
+
+  // function angle(cx, cy, ex, ey) {
+  //   const dy = ey - cy;
+  //   const dx = ex - cx;
+  //   const rad = Math.atan2(dy, dx);
+  //   const deg = (rad * 180) / Math.PI;
+  //   return deg;
+  // }
 
   useEffect(() => {
     GetUserDetails();
