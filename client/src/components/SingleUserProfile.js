@@ -22,7 +22,7 @@ const SingleUserProfile = () => {
   async function GetUserDetails() {
     try {
       const Response = await fetch(
-        `http://localhost:8000/api/v1/auth/Getuserinfo/${id}`
+        `https://qviptaskbackend.onrender.com/api/v1/auth/Getuserinfo/${id}`
       );
       if (Response) {
         const data = await Response.json();
@@ -55,7 +55,7 @@ const SingleUserProfile = () => {
                   style={{
                     width: "100%",
                   }}
-                  src={`http://localhost:8000/api/v1/auth/get-userPhoto/${id}`}
+                  src={`https://qviptaskbackend.onrender.com/api/v1/auth/get-userPhoto/${id}`}
                   className="hover-effect"
                   alt="User Photo(not Set) "
                 />
@@ -125,7 +125,7 @@ const SingleUserProfile = () => {
                     className="NavlinksDesign d-flex align-items-center gap-2"
                   >
                     {" "}
-                    <FaGithub/>
+                    <FaGithub />
                     <span className="Smalltxt">
                       {User.Github.substring(0, 40)}...
                     </span>

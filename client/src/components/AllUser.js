@@ -5,7 +5,7 @@ import Layout from "../layout/layout";
 import { useAuth } from "../context/auth";
 import { QRCode, Space } from "antd";
 import { NavLink } from "react-router-dom";
-import { IoCall } from 'react-icons/io5';
+import { IoCall } from "react-icons/io5";
 
 const AllUser = () => {
   const [Users, SetUsers] = useState([]);
@@ -15,7 +15,7 @@ const AllUser = () => {
     try {
       Setloading(true);
       const response = await fetch(
-        "http://localhost:8000/api/v1/auth/get-allusers"
+        "https://qviptaskbackend.onrender.com/api/v1/auth/get-allusers"
       );
       if (response.status == 200) {
         const data = await response.json();
@@ -48,7 +48,7 @@ const AllUser = () => {
                   style={{
                     width: "8rem",
                   }}
-                  src={`http://localhost:8000/api/v1/auth/get-userPhoto/${u._id}`}
+                  src={`https://qviptaskbackend.onrender.com/api/v1/auth/get-userPhoto/${u._id}`}
                   alt="Image(not set)"
                 />
                 <b>{u.Name}</b>
@@ -56,7 +56,10 @@ const AllUser = () => {
               <div className="d-flex flex-column align-items-center mt-4">
                 <Space>
                   <NavLink to={`/SingleUserInfo/${u._id}`}>
-                    <QRCode type="canvas" value={`/SingleUserInfo/${u._id}`} />
+                    <QRCode
+                      type="canvas"
+                      value={`https://qvip-task-ayush-sharmas-projects.vercel.app/SingleUserInfo/${u._id}`}
+                    />
                   </NavLink>
                 </Space>
               </div>

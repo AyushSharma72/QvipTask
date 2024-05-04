@@ -21,6 +21,7 @@ const UpdateProfile = () => {
   const [Website, SetWebsite] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const { TabPane } = Tabs;
+  const [loading, setloading] = useState(null);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -28,6 +29,7 @@ const UpdateProfile = () => {
 
   async function handlePersonalSubmit(e) {
     try {
+      setloading(true);
       e.preventDefault();
       const formData = new FormData();
       formData.append("Name", Name);
@@ -37,7 +39,7 @@ const UpdateProfile = () => {
 
       e.preventDefault();
       const response = await fetch(
-        `http://localhost:8000/api/v1/auth/profile/${auth.user._id}`,
+        `https://qviptaskbackend.onrender.com/api/v1/auth/profile/${auth.user._id}`,
         {
           method: "PUT",
           headers: {
@@ -61,14 +63,16 @@ const UpdateProfile = () => {
             user: data.UpdatedUser,
           })
         );
-
+        setloading(false);
         toast.success(data.message);
       } else {
+        setloading(false);
         toast(data.message, {
           icon: "❌",
         });
       }
     } catch (error) {
+      setloading(false);
       console.log(error);
       toast.error("Error Updating Profile");
     }
@@ -76,13 +80,14 @@ const UpdateProfile = () => {
 
   async function handlePassword(e) {
     try {
+      setloading(true);
       e.preventDefault();
       const formData = new FormData();
       formData.append("OldPassword", OldPassword);
       formData.append("NewPassword", NewPassword);
 
       const response = await fetch(
-        `http://localhost:8000/api/v1/auth/ProfilePassword/${auth.user._id}`,
+        `https://qviptaskbackend.onrender.com/api/v1/auth/ProfilePassword/${auth.user._id}`,
         {
           method: "PUT",
           headers: {
@@ -108,13 +113,16 @@ const UpdateProfile = () => {
         );
         SetOldPassword("");
         SetNewPassword("");
+        setloading(false);
         toast.success(data.message);
       } else {
+        setloading(false);
         toast(data.message, {
           icon: "❌",
         });
       }
     } catch (error) {
+      setloading(false);
       console.log(error);
       toast.error("Error Updating Profile");
     }
@@ -122,10 +130,11 @@ const UpdateProfile = () => {
 
   async function handleLinksSubmit(e) {
     try {
+      setloading(true);
       e.preventDefault();
 
       const response = await fetch(
-        `http://localhost:8000/api/v1/auth/ProfileLinks/${auth.user._id}`,
+        `https://qviptaskbackend.onrender.com/api/v1/auth/ProfileLinks/${auth.user._id}`,
         {
           method: "PUT",
           headers: {
@@ -156,14 +165,17 @@ const UpdateProfile = () => {
         SetGithub("");
         SetWebsite("");
         SetLinkedIn("");
+        setloading(false);
 
         toast.success(data.message);
       } else {
+        setloading(false);
         toast(data.message, {
           icon: "❌",
         });
       }
     } catch (error) {
+      setloading(false);
       console.log(error);
       toast.error("Error Updating Profile");
     }
@@ -201,7 +213,7 @@ const UpdateProfile = () => {
                   style={{ height: "10rem", width: "12rem" }}
                   title
                   className="img-circle img-thumbnail isTooltip EditProfileUSerPhoto"
-                  src={`http://localhost:8000/api/v1/auth/get-userPhoto/${auth.user._id}`}
+                  src={`https://qviptaskbackend.onrender.com/api/v1/auth/get-userPhoto/${auth.user._id}`}
                   data-original-title="Usuario"
                 />
               ) : null}
@@ -290,7 +302,11 @@ const UpdateProfile = () => {
                   />
                 </div>
 
-                <button type="submit" className="btn btn-dark ">
+                <button
+                  type="submit"
+                  className="btn btn-dark "
+                  disabled={loading}
+                >
                   Save
                 </button>
               </div>
@@ -351,7 +367,11 @@ const UpdateProfile = () => {
                   />
                 </div>
 
-                <button type="submit" className="btn btn-dark ">
+                <button
+                  type="submit"
+                  className="btn btn-dark "
+                  disabled={loading}
+                >
                   Save
                 </button>
               </div>
@@ -415,7 +435,11 @@ const UpdateProfile = () => {
                   />
                 </div>
 
-                <button type="submit" className="btn btn-dark ">
+                <button
+                  type="submit"
+                  className="btn btn-dark "
+                  disabled={loading}
+                >
                   Save
                 </button>
               </div>
