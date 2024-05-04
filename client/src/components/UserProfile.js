@@ -12,7 +12,7 @@ import { IoCall } from "react-icons/io5";
 
 const UserProfile = () => {
   const [auth, SetAuth] = useAuth();
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
   const [User, SetUser] = useState("");
 
   async function GetUserDetails() {
@@ -34,28 +34,26 @@ const UserProfile = () => {
   }
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
+    window.addEventListener("mousemove", calculateParallax);
   }, []);
 
-  useEffect(() => {
-    const calculateParallax = () => {
+  function calculateParallax(e) {
+    const container = document.querySelector(".cont");
+    if (container) {
+      const rekt = container.getBoundingClientRect();
+      const anchorX = rekt.left + rekt.width / 2;
+      const anchorY = rekt.top + rekt.height / 2;
+
       const image = document.querySelector(".hover-effect");
       if (image) {
-        const speed = -3;
-        const x = ((window.innerWidth - mousePosition.x) * speed) / 100;
-        const y = ((window.innerWidth - mousePosition.y) * speed) / 100;
-
-        image.style.transform = `translateX(${x}px) translateY(${y}px) `;
+        const dx = e.clientX - anchorX;
+        const dy = e.clientY - anchorY;
+        const translateX = dx * 0.1;
+        const translateY = dy * 0.1;
+        image.style.transform = `translate(${translateX}px, ${translateY}px)`;
       }
-    };
-    calculateParallax(); // Initial calculation
-  }, [mousePosition]); //  recalculation on mouse position change
+    }
+  }
 
   useEffect(() => {
     GetUserDetails();
@@ -71,7 +69,7 @@ const UserProfile = () => {
             <div className=" d-flex justify-content-around w-100">
               <div className="panel-body inf-content " style={{ width: "65%" }}>
                 <div className="row">
-                  <div className="col-md-4 ">
+                  <div className="col-md-4 cont">
                     {auth.user && auth.user._id ? (
                       <img
                         style={{

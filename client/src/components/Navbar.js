@@ -12,11 +12,8 @@ function Navbar() {
     localStorage.removeItem("auth");
 
     navigate("/login");
-    setTimeout(() => {
-      toast.success("logout Successfull");
-      window.location.reload();
-    }, 500);
-  }
+    window.location.reload();
+    }
 
   return (
     <>
