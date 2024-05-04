@@ -13,58 +13,76 @@ function Navbar() {
 
     navigate("/login");
     window.location.reload();
-    }
+  }
 
   return (
     <>
-      <nav
-        className="navbar navbar-expand-lg bg-body-tertiary "
-        style={{ zIndex: "3" }}
-      >
-        <div className="d-flex justify-content-between w-100 ">
-          <div className="ml-3">
-            <h3 style={{ color: "white" }}>Navbar</h3>
-          </div>
-          <div className="w-50 d-flex justify-content-around">
-            {!auth.user ? (
-              <>
-                <NavLink to="/login" className="NavlinkStyle">
-                  {" "}
-                  <button className=" btn btn-primary"> Login </button>
-                </NavLink>
-                <NavLink to="/register" className="NavlinkStyle">
-                  <button className=" btn btn-primary"> Register</button>
-                </NavLink>
-                <NavLink to="/alluser" className="NavlinkStyle">
-                  <button className=" btn btn-primary">Users_Qrcodes</button>
-                </NavLink>
-                <NavLink to="/" className="NavlinkStyle">
-                  <button className=" btn btn-primary">Your_Profile</button>
-                </NavLink>
-              </>
-            ) : null}
-
-            {auth.user ? (
-              <>
-                {" "}
-                <NavLink to="/alluser" className="NavlinkStyle">
-                  <button className=" btn btn-primary">Users_Qrcodes</button>
-                </NavLink>
-                <NavLink to="/" className="NavlinkStyle">
-                  <button className=" btn btn-primary">UserProfile</button>
-                </NavLink>
-                <NavLink to="/" className="NavlinkStyle">
-                  <button
-                    className=" btn btn-primary"
-                    onClick={() => {
-                      HandleLogout();
-                    }}
-                  >
-                    Logout
-                  </button>
-                </NavLink>
-              </>
-            ) : null}
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div className="container-fluid">
+          <NavLink to="/" className="navbar-brand">
+            Navbar
+          </NavLink>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              {!auth.user ? (
+                <>
+                  <li className="nav-item">
+                    <NavLink to="/login" className="nav-link">
+                      <button className="btn btn-primary">Login</button>
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink to="/register" className="nav-link">
+                      <button className="btn btn-primary">Register</button>
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink to="/alluser" className="nav-link">
+                      <button className="btn btn-primary">Users_Qrcodes</button>
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink to="/" className="nav-link">
+                      <button className="btn btn-primary">Your_Profile</button>
+                    </NavLink>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li className="nav-item">
+                    <NavLink to="/alluser" className="nav-link">
+                      <button className="btn btn-primary">Users_Qrcodes</button>
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink to="/" className="nav-link">
+                      <button className="btn btn-primary">UserProfile</button>
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <button
+                      className="btn btn-primary"
+                      onClick={() => {
+                        HandleLogout();
+                      }}
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </>
+              )}
+            </ul>
           </div>
         </div>
       </nav>

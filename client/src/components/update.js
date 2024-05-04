@@ -199,14 +199,14 @@ const UpdateProfile = () => {
   return (
     <Layout>
       <h2 className="w-100 text-center">Update Profile</h2>
-      <div className="d-flex justify-content-around">
-        <Tabs centered style={{ width: "60%" }}>
+      <div className="d-flex justify-content-around tabsparent">
+        <Tabs centered style={{ width: "60%" }} className="Tabs">
           <TabPane
             tab="Personal Information"
             key="1"
             className="TabPanePersonalInfo"
           >
-            <div className="d-flex flex-column align-items-center">
+            <div className="d-flex flex-column align-items-center " >
               {" "}
               {auth.user && auth.user._id ? (
                 <img

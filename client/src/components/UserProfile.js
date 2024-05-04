@@ -78,10 +78,10 @@ const UserProfile = () => {
       {" "}
       <h2 className="w-100 text-center"> Your Profile </h2>
       {!loading ? (
-        <div className="d-flex align-items-center h-100 flex-column  gap-2 ">
+        <div className="d-flex align-items-center h-100 flex-column  gap-2 UserProfileDiv">
           {auth?.user ? (
             <div>
-              <div className=" d-flex justify-content-around w-100">
+              <div className=" d-flex justify-content-around w-100 USerContent">
                 <div
                   className="panel-body inf-content "
                   style={{ width: "65%" }}
@@ -158,7 +158,7 @@ const UserProfile = () => {
                 User.Website ||
                 User.MobileNo ? (
                   <div
-                    className="d-flex flex-column align-items-center "
+                    className="d-flex flex-column align-items-center Contact"
                     style={{ width: "25%" }}
                   >
                     <h4> Contact Info</h4>

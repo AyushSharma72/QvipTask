@@ -37,13 +37,13 @@ const AllUser = () => {
   return (
     <Layout>
       <h3 className="w-100 text-center">
-        AllUser(Scan or click Qr to view profile)
+        AllUser(Scan with mobile or click Qr to view profile)
       </h3>
       {!loading ? (
-        <div className="w-100 d-flex justify-content-center flex-wrap mt-2 gap-2">
+        <div className="w-100 d-flex justify-content-center flex-wrap mt-2 gap-2 Qrdiv">
           {Users.map((u, _id) => (
-            <div className="d-flex align-items-center gap-1 w-25">
-              <div className="d-flex flex-column justify-content-center align-items-center">
+            <div className="d-flex align-items-center gap-1 w-25 MainContentDiv">
+              <div className="d-flex flex-column justify-content-center align-items-center QRDivImage">
                 <img
                   style={{
                     width: "8rem",

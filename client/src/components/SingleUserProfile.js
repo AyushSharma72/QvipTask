@@ -47,9 +47,9 @@ const SingleUserProfile = () => {
       {" "}
       <div className="d-flex align-items-center h-100 w-100 flex-column  gap-2 ">
         <h1>User Profile Page</h1>
-        <div className=" d-flex justify-content-around w-100">
+        <div className=" d-flex justify-content-around w-100 UserInformationdiv" >
           <div className="panel-body inf-content " style={{ width: "65%" }}>
-            <div className="row">
+            <div className="row ">
               <div className="col-md-4 ">
                 <img
                   style={{
@@ -60,7 +60,7 @@ const SingleUserProfile = () => {
                   alt="User Photo(not Set) "
                 />
               </div>
-              <div className="col-md-6">
+              <div className="col-md-6 allinfo">
                 <strong className="UserInfo">User Information</strong>
                 <br />
                 <div className="table-responsive">
@@ -114,7 +114,7 @@ const SingleUserProfile = () => {
           </div>
           {User.Github || User.LinkedIn || User.Website || User.MobileNo ? (
             <div
-              className="d-flex flex-column align-items-center "
+              className="d-flex flex-column align-items-center Contact"
               style={{ width: "25%" }}
             >
               <h4> Contact Info</h4>
